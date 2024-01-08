@@ -51,12 +51,17 @@ maps.n["<leader>pl"] = { "<cmd>AstroChangelog<cr>", desc = "AstroNvim Changelog"
 -- Manage Buffers
 maps.n["<leader>c"] = { function() require("astronvim.utils.buffer").close() end, desc = "Close buffer" }
 maps.n["<leader>C"] = { function() require("astronvim.utils.buffer").close(0, true) end, desc = "Force close buffer" }
-maps.n["]b"] =
-  { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" }
-maps.n["[b"] = {
+
+-- Navigate Buffers
+maps.n["<Tab>"] = {
+  function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+  desc = "Next buffer"
+}
+maps.n["<S-Tab>"] = {
   function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
   desc = "Previous buffer",
 }
+
 maps.n[">b"] = {
   function() require("astronvim.utils.buffer").move(vim.v.count > 0 and vim.v.count or 1) end,
   desc = "Move buffer tab right",
@@ -166,8 +171,8 @@ end
 
 -- NeoTree
 if is_available "neo-tree.nvim" then
-  maps.n["<leader>e"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
-  maps.n["<leader>o"] = {
+  maps.n["<leader>o"] = { "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" }
+  maps.n["<leader>e"] = {
     function()
       if vim.bo.filetype == "neo-tree" then
         vim.cmd.wincmd "p"
