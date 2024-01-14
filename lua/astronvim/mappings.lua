@@ -34,6 +34,9 @@ maps.n["\\"] = { "<cmd>split<cr>", desc = "Horizontal Split" }
 -- TODO: Remove when dropping support for <Neovim v0.10
 if not vim.ui.open then maps.n["gx"] = { utils.system_open, desc = "Open the file under cursor with system app" } end
 
+-- Custom operation
+maps.n["<leader>a"] = { "<C-o>", desc = "Go backward" }
+
 -- Plugin Manager
 maps.n["<leader>p"] = sections.p
 maps.n["<leader>pi"] = { function() require("lazy").install() end, desc = "Plugins Install" }
