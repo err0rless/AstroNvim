@@ -139,8 +139,12 @@ return {
           show_hidden_count = true,
           hide_dotfiles = false,
           hide_gitignored = true,
-          hide_by_name = {},
-          never_show = {},
+          hide_by_name = {
+            '.gitignore'
+          },
+          never_show = {
+            '.git'
+          },
         },
       },
       event_handlers = {
