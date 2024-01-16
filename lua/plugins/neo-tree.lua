@@ -133,6 +133,15 @@ return {
         follow_current_file = { enabled = true },
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
+        filtered_items = {
+          -- show hidden items by default 
+          visible = true,
+          show_hidden_count = true,
+          hide_dotfiles = false,
+          hide_gitignored = true,
+          hide_by_name = {},
+          never_show = {},
+        },
       },
       event_handlers = {
         {
